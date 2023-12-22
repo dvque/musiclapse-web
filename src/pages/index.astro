@@ -7,11 +7,12 @@ import Layout from "../layouts/Layout.astro";
 		<div class="container">
 			<article class="flex items-center">
 				<div class="glows"></div>
+
 				<span class="header">
-					<img class="w-12 h-12" src="public/ml-logo.svg" /></span
+					<img class="w-12 h-12" src="src/images/ml-logo.svg" /></span
 				>
 
-				<h2>Musiclapse</h2>
+				<h2 class="font-bold text-4xl">Musiclapse</h2>
 				<p>Silence for too long</p>
 				<button
 					class="px-4 py-2 text-sm bg-cyan-500 text-white rounded-full shadow-sm"
@@ -107,13 +108,11 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
-	@import "normalize.css";
-
-	@font-face {
+	/* @font-face {
 		font-family: "Geist Sans";
 		src: url("https://assets.codepen.io/605876/GeistVF.ttf")
 			format("truetype");
-	}
+	} */
 
 	:root {
 		--bg: hsl(246 44% 7%);
@@ -305,12 +304,12 @@ import Layout from "../layouts/Layout.astro";
 		opacity: 1;
 	}
 
-	article h2 {
+	/* article h2 {
 		margin: 0;
 		padding: 1rem 0;
 		font-weight: 100;
 		font-size: 1.5rem;
-	}
+	} */
 
 	.header {
 		position: relative;
