@@ -3,20 +3,37 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Musiclapse">
-	<main class="h-screen flex flex-col justify-center items-center mt-10">
+	<main class="h-screen flex flex-col justify-center items-center">
 		<div class="container">
 			<article class="flex items-center">
 				<div class="glows"></div>
 
 				<span class="header">
-					<img class="w-12 h-12" src="src/images/ml-logo.svg" /></span
+					<img src="src/assets/images/ml-logo.svg" /></span
 				>
 
-				<h2 class="font-bold text-4xl">Musiclapse</h2>
-				<p>Silence for too long</p>
-				<button
-					class="px-4 py-2 text-sm bg-cyan-500 text-white rounded-full shadow-sm"
-					>Visit Musiclapse</button
+				<h1 class="text-6xl mt-5 uppercase">Musiclapse</h1>
+				<h5 class="text-2xl">Next level of music</h5>
+				<a
+					href="https://www.youtube.com/@musiclapse"
+					class="flex flex-row items-center
+					transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-150
+					mt-5 px-6 py-2 hover:border-2 hover:text-white hover:border-white rounded-full shadow-sm"
+					>Visit Youtube
+					<svg
+						class="ml-1"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path stroke="none" d="M0 0h24v24H0z" fill="none"
+						></path><path d="M17 7l-10 10"></path><path
+							d="M8 7l9 0l0 9"></path></svg
+					></a
 				>
 			</article>
 		</div>
@@ -92,11 +109,15 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
-	/* @font-face {
-		font-family: "Geist Sans";
-		src: url("https://assets.codepen.io/605876/GeistVF.ttf")
-			format("truetype");
-	} */
+	@font-face {
+		font-family: "Aber Mono";
+		src: url("src/assets/fonts/Aber-Mono-Regular.otf") format("truetype");
+	}
+
+	@font-face {
+		font-family: "Nexa";
+		src: url("src/assets/fonts/Nexa Bold.otf") format("truetype");
+	}
 
 	:root {
 		--bg: hsl(246 44% 7%);
@@ -139,6 +160,22 @@ import Layout from "../layouts/Layout.astro";
 		color: var(--color);
 	}
 
+	img {
+		height: 10rem;
+	}
+
+	h1 {
+		font-family: "Nexa";
+	}
+
+	h5 {
+		font-family: "Aber Mono";
+	}
+
+	a {
+		font-family: "Aber Mono";
+	}
+
 	/* .container {
 		--spread: 60;
 		display: flex;
@@ -161,8 +198,8 @@ import Layout from "../layouts/Layout.astro";
 		padding: 2rem;
 		aspect-ratio: 330 / 400;
 		border-radius: var(--border-radius);
-		min-width: 280px;
-		max-width: 280px;
+		width: 40rem;
+		height: 25rem;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
@@ -275,18 +312,18 @@ import Layout from "../layouts/Layout.astro";
 		font-weight: 50;
 	}
 
-	a {
+	/* a {
 		color: var(--color);
 		text-decoration: none;
 		opacity: 0.5;
 		display: inline-block;
 		align-self: start;
 		transition: opacity 0.2s;
-	}
+	} */
 
-	a:is(:hover, :focus-visible) {
+	/* a:is(:hover, :focus-visible) {
 		opacity: 1;
-	}
+	} */
 
 	/* article h2 {
 		margin: 0;
