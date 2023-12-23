@@ -87,22 +87,6 @@ import Layout from "../layouts/Layout.astro";
 		);
 	};
 
-	const CTRL = new GUI({
-		width: 340,
-	});
-	CTRL.add(CONFIG, "spread", 10, 180, 1)
-		.name("Spread (deg)")
-		.onChange(RESTYLE);
-	CTRL.add(CONFIG, "proximity", 10, 180, 1)
-		.name("Active Proximity (px)")
-		.onChange(RESTYLE);
-	CTRL.add(CONFIG, "gap", 10, 100, 1).name("Gap (px)").onChange(RESTYLE);
-	CTRL.add(CONFIG, "blur", 0, 50, 1).name("Blur (px)").onChange(RESTYLE);
-	CTRL.add(CONFIG, "opacity", 0, 1, 0.01)
-		.name("Inactive Opacity")
-		.onChange(RESTYLE);
-	CTRL.add(CONFIG, "vertical").name("Vertical Layout").onChange(RESTYLE);
-
 	RESTYLE();
 	UPDATE();
 </script>
