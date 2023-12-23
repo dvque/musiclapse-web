@@ -13,7 +13,9 @@ import Layout from "../layouts/Layout.astro";
 				>
 
 				<h1 class="text-6xl mt-5 uppercase font-bold">Musiclapse</h1>
-				<h5 class="text-2xl">Next level of music</h5>
+				<h5 class="text-2x: { x: number; y: number; }l">
+					Next level of music
+				</h5>
 				<a
 					href="https://www.youtube.com/@musiclapse"
 					class="flex flex-row items-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-80 border-2 border-transparent duration-150 mt-8 px-6 py-2 hover:border-2 hover:text-white hover:border-white rounded-full shadow-sm"
@@ -39,9 +41,7 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-	import { GUI } from "https://cdn.skypack.dev/dat.gui";
-
-	const CONTAINER = document.querySelector(".container");
+	const CONTAINER: HTMLElement | null = document.querySelector(".container");
 	const CARDS = document.querySelectorAll("article");
 
 	const CONFIG = {
@@ -55,7 +55,7 @@ import Layout from "../layouts/Layout.astro";
 
 	const PROXIMITY = 10;
 
-	const UPDATE = (event) => {
+	const UPDATE = (event: PointerEvent) => {
 		// get the angle based on the center point of the card and pointer position
 		for (const CARD of CARDS) {
 			// Check the card against the proximity and then start updating
@@ -70,9 +70,9 @@ import Layout from "../layouts/Layout.astro";
 					CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
 			) {
 				// If within proximity set the active opacity
-				CARD.style.setProperty("--active", 1);
+				CARD.style.setProperty("--active", "1");
 			} else {
-				CARD.style.setProperty("--active", CONFIG.opacity);
+				CARD.style.setProperty("--active", CONFIG.opacity.toString());
 			}
 			const CARD_CENTER = [
 				CARD_BOUNDS.left + CARD_BOUNDS.width * 0.5,
@@ -86,24 +86,26 @@ import Layout from "../layouts/Layout.astro";
 					180) /
 				Math.PI;
 			ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
-			CARD.style.setProperty("--start", ANGLE + 90);
+			CARD.style.setProperty("--start", (ANGLE + 90).toString());
 		}
 	};
 
 	document.body.addEventListener("pointermove", UPDATE);
 
 	const RESTYLE = () => {
-		CONTAINER.style.setProperty("--gap", CONFIG.gap);
-		CONTAINER.style.setProperty("--blur", CONFIG.blur);
-		CONTAINER.style.setProperty("--spread", CONFIG.spread);
-		CONTAINER.style.setProperty(
-			"--direction",
-			CONFIG.vertical ? "column" : "row",
-		);
+		if (CONTAINER) {
+			CONTAINER.style.setProperty("--gap", CONFIG.gap.toString());
+			CONTAINER.style.setProperty("--blur", CONFIG.blur.toString());
+			CONTAINER.style.setProperty("--spread", CONFIG.spread.toString());
+			CONTAINER.style.setProperty(
+				"--direction",
+				CONFIG.vertical ? "column" : "row",
+			);
+		}
 	};
 
 	RESTYLE();
-	UPDATE();
+	// UPDATE();
 </script>
 
 <style>
